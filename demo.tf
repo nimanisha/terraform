@@ -9,12 +9,12 @@ resource "aws_security_group" "ec2-sg"{
 name = "myec2sg"
 ingress {
 form_port=0
-to_port=65535
+to_port=65536
 cidr_blocks=["0.0.0.0/0"]
 }
 egress {
 form_port=0
-to_port=65535
+to_port=65536
 cidr_blocks=["0.0.0.0/0"]
 }
 }
