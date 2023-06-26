@@ -26,4 +26,18 @@ cidr_blocks=["0.0.0.0/0"]
 output "sgid" {
   value = aws_security_group.ec2-sg.id
 }
+    provisioner "remote-exec" {
+      inline = [
+        "sudo yum install -y ngnix",
+        "sudo systemctl start ngnix"
+       
+      ]
+      connection {
+        type = "ssh"
+        host = self.public_ip
+        user="root"
+        private_key="${file("./ec2.pem")}"
+      }
+      
+    }
 
